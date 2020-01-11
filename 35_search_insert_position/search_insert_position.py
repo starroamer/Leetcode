@@ -24,6 +24,7 @@ class Solution(object):
 
         return insert_pos
 
+
 if __name__ == "__main__":
     s = Solution()
     input = [1, 3, 5, 6]
