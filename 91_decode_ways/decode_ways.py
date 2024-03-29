@@ -1,5 +1,8 @@
 # Definition for a binary tree node.
 class Solution:
+    """
+    https://leetcode.cn/problems/decode-ways
+    """
     def numDecodings(self, s: str) -> int:
         if s[0] == '0':
             return 0

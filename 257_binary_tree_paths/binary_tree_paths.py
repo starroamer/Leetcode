@@ -8,6 +8,9 @@ class TreeNode:
 class Solution:
     from typing import List
     from typing import Optional
+    """
+    https://leetcode.cn/problems/binary-tree-paths/
+    """
     def binaryTreePaths(self, root: Optional[TreeNode]) -> List[str]: 
         paths = []
         path = []
