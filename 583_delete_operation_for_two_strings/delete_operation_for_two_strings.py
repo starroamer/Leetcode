@@ -17,7 +17,6 @@ class Solution(object):
                         dp[i][j] = dp[i-1][j-1]
                     else:
                         dp[i][j] = min(dp[i-1][j] + 1, dp[i][j-1] + 1, dp[i-1][j-1] + 2)
-                print(i, j, dp[i][j])
 
         return dp[len1-1][len2-1]
 
@@ -30,7 +29,6 @@ class Solution(object):
             for j in range(len2):
                 if i == 0:
                     dp[j] = j if word1[0] in word2[:j+1] else j + 2
-                    print(i, j, dp[j])
                     continue
 
                 temp = dp[j]
@@ -42,8 +40,6 @@ class Solution(object):
                     else:
                         dp[j] = min(dp[j] + 1, dp[j-1] + 1, prev + 2)
                 prev = temp
-
-                print(i, j, dp[j])
 
         return dp[-1]
 
