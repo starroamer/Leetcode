@@ -1,4 +1,3 @@
-# Definition for a binary tree node.
 class Solution:
     """
     https://leetcode.cn/problems/decode-ways
