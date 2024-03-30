@@ -21,9 +21,36 @@ class Solution(object):
 
         return dp[len1-1][len2-1]
 
+    # 空间压缩版本
+    def minDistance_v2(self, word1: str, word2: str) -> int:
+        len1 = len(word1)
+        len2 = len(word2)
+        dp = [0 for i in range(len2)]
+        for i in range(len1):
+            for j in range(len2):
+                if i == 0:
+                    dp[j] = j if word1[0] in word2[:j+1] else j + 2
+                    print(i, j, dp[j])
+                    continue
+
+                temp = dp[j]
+                if j == 0:
+                    dp[j] = i if word2[0] in word1[:i+1] else i + 2
+                else:
+                    if word1[i] == word2[j]:
+                        dp[j] = prev
+                    else:
+                        dp[j] = min(dp[j] + 1, dp[j-1] + 1, prev + 2)
+                prev = temp
+
+                print(i, j, dp[j])
+
+        return dp[-1]
+
 
 if __name__ == "__main__":
     s = Solution()
     word1 = "sea"
     word2 = "eat"
-    print(s.minDistance(word1, word2))
+    # print(s.minDistance(word1, word2))
+    print(s.minDistance_v2(word1, word2))
