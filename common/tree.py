@@ -32,3 +32,29 @@ class BinaryTreeUitl:
                     node_list.append(right_leaf)
 
         return root
+
+    @staticmethod
+    def printBinaryTree(root: Optional[TreeNode]):
+        result = []
+        node_list = [root]
+        node_cnt = 0
+        while node_list:
+            node = node_list.pop(0)
+            val = node.val if node else "null"
+            result.append(val)
+            if node:
+                node_list.append(node.left)
+                node_list.append(node.right)
+                node_cnt += 1
+        
+        print_list = []
+        print_node_cnt = 0
+        for val in result:
+            print_list.append(val)
+            if val != "null":
+                print_node_cnt += 1
+            if print_node_cnt >= node_cnt:
+                break
+
+        print(print_list)
+
