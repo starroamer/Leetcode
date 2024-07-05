@@ -9,10 +9,10 @@ class Solution:
             return n
         p = 1 # num[0:p+1]满足条件
         for i in range(p + 1, n):
+            # i向前扫描，发现新数字时，p向前一位
             if nums[i] != nums[p] or nums[i] != nums[p - 1]:
                 p += 1
                 nums[p] = nums[i]
-            print("i = ", i, "p = ", p, "nums=", nums)
 
         del nums[p + 1:]
         return p + 1
